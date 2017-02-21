@@ -1,7 +1,7 @@
 #Devon Soto
 #Code to verify email addresses
 #Read README on how to run
-
+  
 
 import re
 
