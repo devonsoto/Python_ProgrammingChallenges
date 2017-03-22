@@ -1,7 +1,7 @@
 #Devon Soto
 #Code to verify email addresses
 #Read README on how to run
-  
+
 
 import re
 
@@ -12,25 +12,25 @@ def fun(s):
     pos_at = s.find('@')
 
     if(pos_at == -1):
-        print("{} is not a valid email, missing @.".format(s))
+        print("{email} is not a valid email, missing @.".format(email=s))
         return False
 
     #email addresses with at most 3 letters after '.'
     pos_dot = s.find('.',pos_at)
     if(len(s[pos_dot+1:]) > 3 or pos_dot == -1):
-        print("{} length of extension is greater than 3 or {} not found".format(len(s[pos_dot+1:]), '.'))
+        print("Your length of extension, {}, is greater than 3 or {} could not be found".format(len(s[pos_dot+1:]), '.'))
         return False
 
     #Loop through to see if there is only valid characters in username
-    username_length = len(s[0:pos_at])
-    username = re.sub("[^a-zA-Z0-9\-\_]", '',s[0:pos_at])
+    username_length = len(s[:pos_at])
+    username = re.sub("[^a-zA-Z0-9\-\_]", '', s[:pos_at])   #replacing every invalid character
     if(len(username) != username_length or username_length == 0):
-        print("beginning username: {} . Username after: {}. Invalid characters in username.".format(s[0:pos_at],username))
+        print("Username: {} . Username after subsituting invalid characters: {}. Invalid characters in username.".format(s[:pos_at],username))
         return False
-    website_length = len(s[pos_at+1:pos_dot])
-    website = re.sub("[^a-zA-Z0-9]", '',s[pos_at+1:pos_dot])
 
     #Loop through to see if there is only valid characters in website
+    website_length = len(s[pos_at+1:pos_dot])   #gettinf from @ -> .
+    website = re.sub("[^a-zA-Z0-9]", '',s[pos_at+1:pos_dot])
     if(len(s[pos_at+1:pos_dot]) != len(website)):
         print("Beginning website: {}. Website after: {}. Invalid characters in website.".format(s[pos_at+1:pos_dot],website))
         return False
