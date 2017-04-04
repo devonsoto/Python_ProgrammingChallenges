@@ -11,6 +11,8 @@ If you can offer feedback on how to improve my code or ways to make it more effi
 
 - `ValidPassword.py` - This script determines whether or not a password is valid. There are multiple test cases at the bottom of the program.
 
+- `MinMaxSum.py` - This program will output the minimum and maximum sum of five integers inputted by the user.
+
 
                
                
